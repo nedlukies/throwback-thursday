@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Throwback Thursday Bingo!{% endblock %}
+
+{% block body %}
+<style>
+    td, th {
+      border: 12px ridge;
+      height: 150px;
+      width: 150px;
+      text-align: center;
+    }
+    .name {
+      font-weight: bold;
+    }
+    td.active {
+       background: hotpink;
+    }
+</style>
+
+<div class="example-wrapper">
+    <h1>Throwback Thursday Bingo</h1>
+
+    <h2>Today we are going to party like its 1996</h2>
+
+  <p><em>*** This site is best viewed at 800x600 resolution, preferably with your eyes ***</em></p>
+  <h4>Instructions</h4>
+  <p>Listen out, click on the square when you hear the song. When you get 5 in a row yell out <strong>BINGO!</strong> as loud as you can. <a href="/">Click Here </a> to generate a new card. </p>
+  <p><strong>@todo</strong> add some spinny flammy thing when you get bingo</p>
+
+    <table>
+        {% for id, row in tracks %}
+        <tr>
+            {% for track in row %}
+            <td><span class="name">{{ track.name }}</span><br/><span class="artist">{{ track.artist }}</span></td>
+            {% endfor %}
+        </tr>
+        {%  endfor %}
+
+    </table>
+</div>
+
+  <script type="text/javascript">
+    var tableCells = document.getElementsByTagName('td');
+    Array.prototype.forEach.call(tableCells,function(el, i) {
+      el.addEventListener('click', function() {
+        if (el.classList) {
+          if (el.classList.contains('active')) {
+            el.classList.remove('active');
+          } else {
+            el.classList.add('active');
+          }
+        } else {
+          if (el.className) {
+            el.className = ''
+          } else {
+            el.className = 'active'
+          }
+       }
+
+
+
+      });
+
+    })
+  </script>
+{% endblock %}
