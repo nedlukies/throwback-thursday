@@ -4,11 +4,20 @@
 
 {% block body %}
 <style>
+    body {
+      background: url('/images/bingo.jpg');
+      font-size: 150%;
+      font-weight: 400;
+    }
     td, th {
+      background: white;
       border: 12px ridge;
       height: 150px;
       width: 150px;
       text-align: center;
+    }
+    div.container {
+      background: white;
     }
     .name {
       font-weight: bold;
@@ -19,6 +28,9 @@
 </style>
 
 <div class="example-wrapper">
+  <div class="container">
+
+
     <h1>Throwback Thursday Bingo</h1>
 
     <h2>Today we are going to party like its 1996</h2>
@@ -27,6 +39,7 @@
   <h4>Instructions</h4>
   <p>Listen out, click on the square when you hear the song. When you get 5 in a row yell out <strong>BINGO!</strong> as loud as you can. <a href="/">Click Here </a> to generate a new card. </p>
   <p><strong>@todo</strong> add some spinny flammy thing when you get bingo</p>
+  </div>
 
     <table>
         {% for id, row in tracks %}
